@@ -9,7 +9,8 @@ pipeline {
   stages {
     stage('Cloning Git') {
       steps {
-        git '<https://github.com/wishful16/MavenTestProject>'
+//         git '<https://github.com/wishful16/MavenTestProject>'
+            git 'https://github.com/wishful16/MavenTestProject'
       }
     }
     // stage('Build Executable Jar'){
