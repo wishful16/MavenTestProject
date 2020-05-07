@@ -1,13 +1,13 @@
 pipeline {
   environment {
-    registry = "wishfulthinker999/calculatorrepo999"
+    registry = 'wishfulthinker999/calculatorrepo999'
     registryCredential = 'dockerhubcred'
     dockerImage = ''
     dockerImageLatest = ''
   }
   tools {
           maven 'AbhashMaven'
-          docker 'docker'
+
       }
   agent any
   stages {
@@ -31,21 +31,21 @@ pipeline {
         }
       }
     }
-    // stage('Deploy Image') {
-    //   steps{
-    //     script {
-    //       docker.withRegistry( '', registryCredential ) {
-    //         dockerImage.push()
-    //         dockerImageLatest.push()
-    //       }
-    //     }
-    //   }
-    // }
-    // stage('Remove Unused docker image') {
-    //   steps{
-    //     sh "docker rmi $registry:$BUILD_NUMBER"
-    //   }
-    // }
+    stage('Deploy Image') {
+      steps{
+        script {
+          docker.withRegistry( '', registryCredential ) {
+            dockerImage.push()
+            dockerImageLatest.push()
+          }
+        }
+      }
+    }
+    stage('Remove Unused docker image') {
+      steps{
+        sh "docker rmi $registry:$BUILD_NUMBER"
+      }
+    }
 
   }
 
