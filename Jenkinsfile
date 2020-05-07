@@ -15,7 +15,8 @@ pipeline {
     }
     stage('Build Executable Jar'){
         steps {
-             sh 'mvn clean test package'
+//              sh 'mvn clean test package'
+            sh label: '', script: 'mvn clean test package'
         }
     }
     // stage('Building image') {
