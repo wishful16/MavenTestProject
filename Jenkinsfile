@@ -22,14 +22,14 @@ pipeline {
             sh label: '', script: 'mvn clean test package'
         }
     }
-    // stage('Building image') {
-    //   steps{
-    //     script {
-    //       dockerImage = docker.build registry + ":$BUILD_NUMBER"
-    //       dockerImageLatest = docker.build registry + ":latest"
-    //     }
-    //   }
-    // }
+    stage('Building image') {
+      steps{
+        script {
+          dockerImage = docker.build registry + ":$BUILD_NUMBER"
+          dockerImageLatest = docker.build registry + ":latest"
+        }
+      }
+    }
     // stage('Deploy Image') {
     //   steps{
     //     script {
