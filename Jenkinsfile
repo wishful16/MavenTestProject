@@ -7,6 +7,7 @@ pipeline {
   }
   tools {
           maven 'AbhashMaven'
+          'org.jenkinsci.plugins.docker.commons.tools.DockerTool' '18.09'
       }
   agent any
   stages {
