@@ -13,11 +13,11 @@ pipeline {
             git 'https://github.com/wishful16/MavenTestProject'
       }
     }
-    // stage('Build Executable Jar'){
-    //     steps {
-    //          sh 'mvn clean test package'
-    //     }
-    // }
+    stage('Build Executable Jar'){
+        steps {
+             sh 'mvn clean test package'
+        }
+    }
     // stage('Building image') {
     //   steps{
     //     script {
