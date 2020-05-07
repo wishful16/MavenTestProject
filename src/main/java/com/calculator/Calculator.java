@@ -4,7 +4,7 @@ public class Calculator {
 
 	public static void main(String[] args){
 
-		System.out.println("to check if its working");
+		System.out.println("to check if its working chal jaa bhai");
 		System.out.println("6 + 3 = " + add(6, 3));
 		System.out.println("6 - 3 = " + subtract(6,3));
 		System.out.println("6 * 3 = " + multiply(6,3));
