@@ -31,8 +31,9 @@ pipeline {
 //           dockerImageLatest = docker.build registry + ":latest"
 //         }
 withDockerRegistry(credentialsId: 'dockerhubcred', url: 'https://hub.docker.com/repository/docker/wishfulthinker999/calculatorrepo999') {
-    // some block
-}
+ dockerImage = docker.build registry + ":$BUILD_NUMBER"
+           dockerImageLatest = docker.build registry + ":latest"
+           }
       }
     }
     // stage('Deploy Image') {
