@@ -1,11 +1,10 @@
 pipeline {
   environment {
-    registry = "<wishfulthinker999>/<calculatorrepo999>"
+    registry = "wishfulthinker999/calculatorrepo999"
     registryCredential = 'dockerhubcred'
     dockerImage = ''
     dockerImageLatest = ''
   }
-
   tools {
           maven 'AbhashMaven'
       }
@@ -25,14 +24,10 @@ pipeline {
     }
     stage('Building image') {
       steps{
-//         script {
-//           dockerImage = docker.build registry + ":$BUILD_NUMBER"
-//           dockerImageLatest = docker.build registry + ":latest"
-//         }
-withDockerRegistry(credentialsId: 'dockerhubcred', url: 'https://hub.docker.com/repository/docker/wishfulthinker999/calculatorrepo999') {
- dockerImage = docker.build registry + ":$BUILD_NUMBER"
-           dockerImageLatest = docker.build registry + ":latest"
-           }
+        script {
+          dockerImage = docker.build registry + ":$BUILD_NUMBER"
+          dockerImageLatest = docker.build registry + ":latest"
+        }
       }
     }
     // stage('Deploy Image') {
