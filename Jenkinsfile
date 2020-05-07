@@ -7,7 +7,6 @@ pipeline {
   }
   tools {
           maven 'AbhashMaven'
-          docker 'abhashdocker'
 
       }
   agent any
