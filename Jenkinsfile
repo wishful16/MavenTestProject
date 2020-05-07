@@ -1,7 +1,7 @@
 pipeline {
   environment {
-    registry = 'wishfulthinker999/calculatorrepo999'
-    registryCredential = 'dockerhubcred'
+    registry = "wishfulthinker999/calculatorrepo999"
+    registryCredential = 'docker hub cred'
     dockerImage = ''
     dockerImageLatest = ''
   }
