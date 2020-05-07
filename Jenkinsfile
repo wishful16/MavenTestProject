@@ -5,6 +5,7 @@ pipeline {
     dockerImage = ''
     dockerImageLatest = ''
   }
+
   tools {
           maven 'AbhashMaven'
           'org.jenkinsci.plugins.docker.commons.tools.DockerTool' '18.09'
@@ -25,10 +26,13 @@ pipeline {
     }
     stage('Building image') {
       steps{
-        script {
-          dockerImage = docker.build registry + ":$BUILD_NUMBER"
-          dockerImageLatest = docker.build registry + ":latest"
-        }
+//         script {
+//           dockerImage = docker.build registry + ":$BUILD_NUMBER"
+//           dockerImageLatest = docker.build registry + ":latest"
+//         }
+withDockerRegistry(credentialsId: 'dockerhubcred', url: 'https://hub.docker.com/repository/docker/wishfulthinker999/calculatorrepo999') {
+    // some block
+}
       }
     }
     // stage('Deploy Image') {
