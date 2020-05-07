@@ -6,7 +6,7 @@ pipeline {
     dockerImageLatest = ''
   }
   tools {
-          maven 'Maven 3.6.3'
+          maven 'AbhashMaven'
       }
   agent any
   stages {
